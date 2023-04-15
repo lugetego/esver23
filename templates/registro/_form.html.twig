@@ -1,0 +1,399 @@
+{{ form_start(form) }}
+<div class="container">
+    <div class="alert alert-light " role="alert">
+        <h4 class="alert-heading"><i class="fa-solid fa-triangle-exclamation"></i> Importante</h4>
+        <ul class="pt-2">
+            <li><p>Se enviará un correo al profesor que te recomienda para solicitarle que nos proporcione tu carta de recomendación,
+                    por lo que debes asegurarte de escribir correctamente su dirección de correo.</p></li>
+            <li><p>Al finalizar el envío de este formulario debes de visualizar una pantalla de confirmación. Además, recibirás un correo
+                    electrónico a la cuenta que proporcionaste, de no ser así favor de revisar tu carpeta de correos no deseados o comunicarte
+                    al correo <mark>webmaster<i class="fa-solid fa-at"></i>matmor.unam.mx</mark> para asegurarte que hayamos recibido tu solicitud.</p></li>
+        </ul>
+        <hr>
+        <p class="mb-0">
+            <i class="fa-solid fa-calendar"></i> Fecha límite para realizar tu registro: <mark>31 de mayo de 2023</mark>.
+        </p>
+    </div>
+    <p class="h4">Datos personales</p>
+    <div class="row pt-2">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.nombre, {
+                label: 'Nombre',
+                attr: {
+                    placeholder: 'Nombre'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.paterno, {
+                label: 'Apellido paterno',
+                attr: {
+                    placeholder: 'Apellido paterno'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.materno, {
+                label: 'Apellido materno',
+                attr: {
+                    placeholder: 'Name'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
+    <div class="row pt-2">
+        <p class="text-secondary">La información del campo sexo es requerida con fines de la asignación de habitación ya que es compartida.</p>
+        <div class="col col-md-4 col-sm-12  ">
+            {{ form_row(form.sexo, {
+                label: 'Sexo',
+                attr: {
+                    placeholder: 'Sexo'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.nacimiento, {
+                label: 'Fecha de Nacimiento',
+                attr: {
+                    placeholder: 'Fecha de nacimiento'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.mail.first, {
+                label: 'Correo electrónico',
+                attr: {
+                    placeholder: 'Correo'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.mail.second, {
+                label: 'Confirma correo electrónico',
+                attr: {
+                    placeholder: 'Correo'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
+    <hr>
+    <p class="h4">Datos académicos</p>
+
+    <div class="row pt-2">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.procedencia, {
+                label: 'Universidad de procedencia',
+                attr: {
+                    placeholder: 'Universidad de Procedencia'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.carrera, {
+                label: 'Carrera',
+                attr: {
+                    placeholder: 'Carrera'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.semestre, {
+                label: 'Semestre o cuatrimestre',
+                attr: {
+                    placeholder: 'Semestre'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+
+    </div>
+    <div class="row pt-2">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.porcentaje, {
+                label: 'Porcentaje de avance (hasta marzo 2023)',
+                attr: {
+                    placeholder: 'Porcentaje de avance (hasta marzo 2023)'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.promedio, {
+                label: 'Promedio',
+                attr: {
+                    placeholder: 'Promedio'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
+    <div class="row pt-2 ">
+
+        <div class="col-md-12" >
+            <p class="text-secondary">En caso de ser alumno o alumna de la UNAM, adjuntar copia de tu credencial UNAM</p>
+
+            <div class="col-md-6">{{ form_widget(form.credencialFile) }}</div>
+            <div class="col-md-6">{{ form_errors(form.credencialFile) }}</div>
+        </div>
+    </div>
+
+
+    <div class="row pt-3">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.profesor, {
+                label: 'Profesor(a) que recomienda su participación',
+                attr: {
+                    placeholder: 'Profesor(a) que recomienda su participación'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.univprofesor, {
+                label: 'Universidad del profesor o profesora',
+                attr: {
+                    placeholder: 'Universidad del profesor'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.mailprofesor.first, {
+                label: 'Correo del profesor o profesora',
+                attr: {
+                    placeholder: 'Correo del profesor o profesora'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.mailprofesor.second, {
+                label: 'Confirma correo del profesor o profesora',
+                attr: {
+                    placeholder: 'Correo del profesor o profesora'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
+    <hr>
+    <p class="h4">{{ evento }}</p>
+
+    <div class="row pt-2">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.beca, {
+                label: 'Beca',
+                attr: {
+                    placeholder: 'Beca'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+
+        <div class="col col-md-8 col-sm-8" id="div_registro_vegetariano">
+            {{ form_row(form.restricciones, {
+                label: 'Mencionar si tienes alguna restricción alimenticia',
+                attr: {
+                    placeholder: 'Mencionar si tienes alguna restricción alimenticia',
+                },
+                row_attr: {
+                    class: 'form-floating',
+                    id: 'registro_vegetariano',
+                }
+            }) }}
+        </div>
+
+    </div>
+
+    <div class="row pt-2">
+        <p class="text-secondary">Como participante deberá tomar cuatro cursos en total, dos obligatorios (C1 y C2) y dos optativos. Las opciones para elegir los cursos optativos son las siguientes:</p>
+
+        <div class="col col-md-6">
+            {{ form_row(form.curso1, {
+                label: 'Selecciona tu curso optativo 1 (C1)',
+                attr: {
+                    placeholder: 'Curso optativo 1 (C1)',
+                },
+                row_attr: {
+                    class: 'form-floating',
+                }
+            }) }}
+        </div>
+        <div class="col col-md-6 pt-3">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalC1">
+                Consultar cursos
+            </button>
+        </div>
+        <div class="col col-md-6">
+            {{ form_row(form.curso2, {
+                label: 'Selecciona tu curso optativo 2 (C2)',
+                attr: {
+                    placeholder: 'Curso optativo 2 (C2)',
+                },
+                row_attr: {
+                    class: 'form-floating',
+                }
+            }) }}
+        </div>
+        <div class="col col-md-6 pt-3">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalC2">
+                Consultar cursos
+            </button>
+        </div>
+    </div>
+
+    <div class="row pt-2">
+        <div class="col col-md-12">
+
+            {{ form_row(form.razones, {
+                label: 'Razones por las que desea asistir',
+                attr: {
+                    placeholder: 'Razones por las que desa asistir',
+                },
+                row_attr: {
+                    class: 'form-floating',
+                }
+            }) }}
+        </div>
+    </div>
+
+    <div class="d-grid gap-2 pt-3 mb-2 col-3 mx-auto">
+        <button class="btn btn-dark"><h5> <i class="fa-regular fa-paper-plane"></i> {{ button_label|default('Enviar') }}</h5></button>
+    </div>
+</div>
+
+
+
+
+
+<!-- Modal C1-->
+<div class="modal fade" id="exampleModalC1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Curso optativo 1</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="h6">C3: De las peras y manzanas a la Geometría Algebraica, <em class="h6 text-secondary">Juan Bosco Frías Medina</em></p>
+                <p style="text-align: justify;">
+                    Resumen: La Geometría Algebraica es el área de las matemáticas que estudia la geometría usando
+                    herramientas algebraicas. En su enfoque clásico, se encargaba del estudio de los ceros de polinomios
+                    en varias variables, las llamadas variedades algebraicas. El enfoque moderno que se utiliza en la
+                    actualidad es debido a los trabajos de Alexander Grothendieck que llevaron al desarrollo de la
+                    Teoría de Esquemas. En este curso, revisaremos cómo nos hemos encontrado con algunas nociones de
+                    Geometría Algebraica sin saberlo, a las variedades algebraicas desde el enfoque clásico y
+                    terminaremos con un vistazo a los esquemas.
+                </p>
+                <p class="h6">C4: Una invitación a la geometría tórica, <em class="h6 text-secondary">A. Daniel Duarte</em></p>
+                <p style="text-align: justify;">
+                    Resumen: Este curso será una introducción a las variedades tóricas, que son variedades algebraicas
+                    definidas a través de objetos combinatorios como conos o semigrupos. Veremos que algunos problemas de
+                    geometría algebraica, como el cálculo de la multiplicidad de un punto o la resolución de singularidades,
+                    se convierten en divertidos juegos combinatorios.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal C2-->
+<div class="modal fade" id="exampleModalC2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Curso optativo 2</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="h6">C5: Aplicaciones de análisis topológico de datos a Pangenómica, <em class="h6 text-secondary">Nelly Selém Mojica</em></p>
+                <p style="text-align: justify;">
+                    Resumen: Es sorprendente que genomas bacterianos de la misma especie difieren en su contenido génico.
+                    En la genómica, al estudio de todos los genes de todas las cepas de un mismo clado se le llama pangenoma.
+                    <br>
+                    En años recientes, el acceso y disponibilidad de grandes bases de datos biológicos se ha incrementado
+                    exponencialmente. Una herramienta para estudiar estos repositorios es el análisis topológico de datos
+                    (TDA) que nos ayuda a inferir propiedades de los objetos de estudio al asociarles un espacio topológico.
+                    En este curso aprenderemos los fundamentos de pangenómica y de TDA y trataremos de construir un
+                    análisis en el lenguaje de programación Python.
+                    <br>
+                    No es necesario conocimiento previo de biología o TDA, este será un curso introductorio que
+                    pretende abordar el problema multidisciplinario de describir cómo evolucionan los genomas bacterianos.
+                </p>
+
+                <p class="h6">C6: Álgebra homológica Gorenstein; ¿Como comenzó, cómo va y a dónde puede ir?, <em class="h6 text-secondary">Victor Becerril Somera</em></p>
+                <p style="text-align: justify;">
+                    Resumen: El "Álgebra homológica Gorenstein" es un tipo de Álgebra homológica relativa en R-Módulos
+                    donde las clases especiales de módulos proyectivos, inyectivos y planos de tipo Gorenstein extienden
+                    a los clásicos, con ello las cotas homológicas son mas finas, existen funtores derivados, existe el
+                    balance del Hom, entre otras propiedades. En los últimos años han aparecido varias clases de módulos
+                    de tipo Gorenstein que han sido un fuerte empuje para la investigación en Álgebra Homológica y sus
+                    áreas de interacción. Este curso tiene por objetivo entregar una perspectiva sobre precisamente esta
+                    afirmación, mostrar el alcance de esta clase de módulos dentro de la teoría de representaciones,
+                    teoría de anillos, teoría de categorías y álgebra homológica misma.
+                </p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{ form_widget(form) }}
+
+
+{{ form_end(form) }}
