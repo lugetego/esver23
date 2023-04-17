@@ -22,12 +22,10 @@
                             {{ registro.nacimiento |format_date('long',locale='es') }}, <small><em> {{ registro.sexo }}, {{ edad }} años</em></small>
                         </p>
                         <p class="card-text">
-                            {% if registro.credencial != null %}
-                        <p> <em>"{{ registro.credencial }}"</em>  </p>
-                        {% elseif registro.credencialName != null %}
+                            {% if registro.credencialName != null %}
                             <a href="{{ vich_uploader_asset(registro, 'credencialFile') }}"  target="_blank" > <span class="badge rounded-pill bg-primary"><i class="fa-regular fa-file-pdf"></i> Credencial</span></a>
                         {% else %}
-                            <span class="badge rounded-pill bg-warning text-dark">Sin recomendación</span>
+                            <span class="badge rounded-pill bg-warning text-dark">Sin credencial</span>
                         {% endif %}
                         </p>
                     </div>
@@ -46,12 +44,10 @@
                             {{ registro.univprofesor| title }}
                         </p>
                         <p class="card-text">
-                            {% if registro.recomendacion != null %}
-                        <p> <em>"{{ registro.recomendacion }}"</em>  </p>
-                        {% elseif registro.cartaName != null %}
+                            {% if registro.cartaName != null %}
                             <a href="{{ vich_uploader_asset(registro, 'cartaFile') }}"  target="_blank" > <span class="badge rounded-pill bg-primary"><i class="fa-regular fa-file-pdf"></i> Carta de recomendación</span></a>
                         {% else %}
-                            <span class="badge rounded-pill bg-warning text-dark">Sin recomendación</span>
+                            <span class="badge rounded-pill bg-warning text-dark">Sin carta de recomendación</span>
                         {% endif %}
                         </p>
                     </div>
